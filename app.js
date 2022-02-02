@@ -1,9 +1,9 @@
 let url = 'https://api.documenu.com/v2/restaurants/state/NY?key=60301177efaa8635e35c293b98ac13a1'
 
-console.log(url);
+//console.log(url);
 
-//url = 'data.json'
-let restaurantNames = []
+url = 'data.json'
+//let restaurantNames = []
 
 fetch(url) 
 .then(function (response) {
@@ -11,31 +11,33 @@ fetch(url)
     return response.json();
 
 }).then(function (obj) {
-    console.log(obj.data);
-    //skapa loop
+    //console.log(obj.data);
 
     obj.data.forEach(element => {
-        
-        // document.write(element.restaurant_name)
-        let lists = document.getElementById("restaurant-names");
-        let theList = document.createElement("li");
 
-        theList.appendChild(document.createTextNode(element.restaurant_name));
-        theList.appendChild(document.createTextNode(element.cuisines));
-        lists.appendChild(theList);
-    });
+        let restaurantList = document.getElementById("restaurant-names");
+        let listItems = document.createElement("li");
 
-    restaurantNames = obj.data
-    //här ska renderContent sen
-    //obj.data.forEach(element => {
-        //document.write(element.restaurant_name)
-    //})
-    
-    
-    
+        listItems.appendChild(document.createTextNode(element.restaurant_name));
+        listItems.appendChild(document.createTextNode(element.cuisines));
+        listItems.appendChild(document.createTextNode(element.hours));
+        restaurantList.appendChild(listItems);
+    })
+
 
 }).catch(function(error) {
 
 }).finally(function() {
 
 }); 
+
+const button = document.querySelector("button");
+console.log(button);
+button.addEventListener("click", () => {
+    console.log("formies");
+}
+
+//const objects = data.json;
+//const filterFunc3 = (element) => {return element.cuisines === 'Pizza'}; 
+//const filteredNumbers2 = objects.filter(filterFunc3); 
+//console.log(filteredNumbers2);
