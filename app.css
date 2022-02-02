@@ -1,0 +1,47 @@
+* {
+    box-sizing:border-box;
+    margin: 0;
+}
+
+/* HEADER */
+
+header {
+    height: 5vh;
+    background-color: black;
+}
+
+/* MAIN */
+
+
+.menu-items {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    height: 20vh;
+}
+
+.menu-item1,
+.menu-item2,
+.menu-item3,
+.menu-item4 {
+    background-color:bisque;
+    border: chocolate;
+    border-style:none;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    margin: 0.5vh;
+}
+
+#restaurant-names {
+    background-color:darkseagreen;
+    padding: 2vh;
+}
+
+li {
+    background-color: white;
+    margin: 2vh;
+    padding: 5vh;
+    border-radius: 0.2rem;
+    list-style: none;
+}

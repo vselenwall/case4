@@ -22,22 +22,35 @@ fetch(url)
         listItems.appendChild(document.createTextNode(element.cuisines));
         listItems.appendChild(document.createTextNode(element.hours));
         restaurantList.appendChild(listItems);
-    })
 
 
 }).catch(function(error) {
 
 }).finally(function() {
 
-}); 
+});
 
+
+/* const myDiv = document.getElementById('restaurant-names');
+ 
+myDiv.innerHTML = data.map(element => `<div style="color: blue">
+<ul>
+    <li>${element.restaurant_name}</li>
+    <li>${element.hours}</li>
+    <li>${element.cuisines}</li>
+</ul>
+</div>`).join(''); */
+
+/*
 const button = document.querySelector("button");
+
 console.log(button);
 button.addEventListener("click", () => {
     console.log("formies");
-}
+}); */
 
+/*
 //const objects = data.json;
 //const filterFunc3 = (element) => {return element.cuisines === 'Pizza'}; 
 //const filteredNumbers2 = objects.filter(filterFunc3); 
-//console.log(filteredNumbers2);
+//console.log(filteredNumbers2) */
