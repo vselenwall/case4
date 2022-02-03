@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-/* HEADER */
+/* HEADER 
 
 header {
     height: 5vh;
@@ -12,14 +12,14 @@ header {
 
 /* MAIN */
 
-
-.menu-items {
+/*
+#menu-items {
     display:grid;
     grid-template-columns: 1fr 1fr;
     height: 20vh;
 }
 
-.menu-item1,
+#button1,
 .menu-item2,
 .menu-item3,
 .menu-item4 {
@@ -44,4 +44,4 @@ li {
     padding: 5vh;
     border-radius: 0.2rem;
     list-style: none;
-}
+} */
