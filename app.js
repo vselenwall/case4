@@ -13,27 +13,28 @@ fetch(url)
     return response.json();
 
   }).then(function (obj) {
-    //console.log(obj.data);
 
-      result = obj.data
-      dataArray.push(result);
-      console.log(result);
+    // create an array with all the data from json-file
+    result = obj.data
+    dataArray.push(result);
+    console.log(result);
 
-      obj.data.forEach(element => {
+    // create a list for the liteitems
+    obj.data.forEach(element => {
 
       let restaurantList = document.getElementById("restaurant-names")
       let listItems = document.createElement("li");
       listItems.className = "restaurantCard";
       listItems.dataset.restaurantName = element.restaurant_name;
       //listItems.dataset.foodOptions = element.cuisines;
-      
-    
-      listItems.appendChild(document.createTextNode("Restaurant Name: " + element.restaurant_name));
-      listItems.appendChild(document.createTextNode("Food: " + element.cuisines));
-      listItems.appendChild(document.createTextNode("Opening hours: " + element.hours));
+
+      // create listitems and conntect to the list
+      listItems.appendChild(document.createTextNode(element.restaurant_name));
+      listItems.appendChild(document.createTextNode(element.cuisines));
+      listItems.appendChild(document.createTextNode(element.hours));
 
       restaurantList.appendChild(listItems);
-      }); 
+    });
 
     /*console.log(obj);
     console.log(obj.data);
@@ -58,8 +59,6 @@ fetch(url)
 
   });
 
-  
-
 let filteredArray = dataArray.filter((obj) => {
   return (restaurant_name == "Ho Lee")
 });
@@ -74,7 +73,7 @@ button.addEventListener("click", () => {
       itemObj.style.display = "none";
     }
   });
-}); 
+});
 
 
 /*
@@ -90,7 +89,7 @@ button.addEventListener("click", () => {
 <li>${element.cuisines}</li>
 </ul>
 </div>`).join(''); */
-console.log(obj);
+/* console.log(obj);
 console.log(obj.data);
 
 result = obj.data;
@@ -104,4 +103,4 @@ result.forEach((obj) => {
     <h4>${obj.restaurant_phone}</h4>
     </div>`;
   restaurantList.innerHTML = restaurantCard;
-})
+}) */
