@@ -14,13 +14,37 @@ fetch(url)
 
   }).then(function (obj) {
 
-    // create an array with all the data from json-file
-    result = obj.data
-    dataArray.push(result);
-    console.log(result);
+    var el = document.getElementById('restaurant-names');
+    /* var arr = obj.data
+      
+    var newArr = arr.map(function(element){
+        return {element};
+    })
+      
+    console.log(newArr)
+      
+    el.innerText = JSON.stringify(newArr); */
 
+    
+    const objects = obj.data
+ 
+    const filterFunc3 = (element) => {return element.restaurant_name == "Strip House"};
+ 
+    const filteredNumbers2 = objects.filter(filterFunc3);
+ 
+    console.log(filteredNumbers2) 
+
+    el.innerText = JSON.stringify(filteredNumbers2);
+    
+
+    // create an array with all the data from json-file
+    //result = obj.data
+    //dataArray.push(result);
+    //console.log(result);
+
+    /*
     // create a list for the liteitems
-    obj.data.forEach(element => {
+      obj.data.forEach(element => {
 
       let restaurantList = document.getElementById("restaurant-names")
       let listItems = document.createElement("li");
@@ -33,8 +57,8 @@ fetch(url)
       listItems.appendChild(document.createTextNode(element.cuisines));
       listItems.appendChild(document.createTextNode(element.hours));
 
-      restaurantList.appendChild(listItems);
-    });
+      restaurantList.appendChild(listItems); 
+    }); */
 
     /*console.log(obj);
     console.log(obj.data);
@@ -75,7 +99,6 @@ button.addEventListener("click", () => {
   });
 });
 
-
 /*
 //const objects = data.json;
 //const filterFunc3 = (element) => {return element.cuisines === 'Pizza'}
@@ -104,3 +127,5 @@ result.forEach((obj) => {
     </div>`;
   restaurantList.innerHTML = restaurantCard;
 }) */
+
+
