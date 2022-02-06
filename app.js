@@ -34,7 +34,9 @@ fetch(url)
  
     console.log(filteredNumbers2) 
 
-    el.innerText = JSON.stringify(filteredNumbers2);
+    el.textContent = (filteredNumbers2);
+
+    document.getElementById("restaurant-names").innerText = Object.values(filteredNumbers2);
     
 
     // create an array with all the data from json-file
