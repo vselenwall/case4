@@ -6,6 +6,7 @@ url = 'data.json'
 //let restaurantNames = []
 
 let dataArray = []
+const restaurantList = document.getElementById('restaurant-names');
 
 fetch(url)
   .then(function (response) {
@@ -16,6 +17,7 @@ fetch(url)
 
     //const objects = obj.data
 
+    //let restaurantList = document.getElementById("restaurant-names");
     const objects = obj.data
 
     // GET ARRAY OF ALL RESTAURANT NAMES
@@ -34,14 +36,38 @@ fetch(url)
     }));
     console.log(restaurantObj);
 
-    // FILTER ON CUISINES: CHINESE
-    const pizzaCusisines = objects.filter(
-      (element) => element.cuisines == "Chinese"
-      );
-    console.log(pizzaCusisines);
+        // FILTER ON CUISINES: CHINESE
     
 
-    /* var el = document.getElementById('restaurant-names');
+    // LIST WITH RESTURANTS
+
+    restaurantList.innerHTML = objects.map(element => `
+    <ul>
+      <li>
+        <h2>${element.restaurant_name}</h2>
+        <p>${element.cuisines}</p>
+        <p>${element.hours}</p>
+      </li>
+    </ul>`).join('');
+
+    const button = document.querySelector("button");
+    button.addEventListener("click", () => {
+  
+      const pizzaCusisines = objects.filter(
+        (element) => element.cuisines == "Chinese");
+        console.log(pizzaCusisines);
+        restaurantList.innerHTML = pizzaCusisines.map(element =>`
+        <ul>
+          <li>
+            <h2>${element.restaurant_name}</h2>
+            <p>${element.cuisines}</p>
+            <p>${element.hours}</p>
+          </li>
+        </ul>`).join('');
+    });
+
+
+    //var el = document.getElementById('restaurant-names');
     /* var arr = obj.data
       
     var newArr = arr.map(function(element){
@@ -105,7 +131,7 @@ fetch(url)
       restaurantList.innerHTML = restaurantCard;
     }) */
 
-  //}).then (obj => render(obj))
+    //}).then (obj => render(obj))
 
   }).catch(function (error) {
 
@@ -113,12 +139,18 @@ fetch(url)
 
   });
 
+
+
+ 
+
+
+
 /*
 let filteredArray = dataArray.filter((obj) => {
   return (restaurant_name == "Ho Lee")
 });
 
-const button = document.querySelector("button");
+
 console.log(button);
 button.addEventListener("click", () => {
   let elementList = document.querySelectorAll(".restaurantCard");
@@ -145,15 +177,7 @@ obj.data.forEach(element => {
 //const filteredNumbers2 = objects.filter(filterFunc3); 
 //console.log(filteredNumbers2) */
 
-/* restaurantList.innerHTML = data.map(element => `<div style="color: blue">
-<ul>
-<li>${element.restaurant_name}</li>
-<li>${element.hours}</li>
-<li>${element.cuisines}</li>
-</ul>
-</div>`).join(''); */
-/* console.log(obj);
-console.log(obj.data);
+/*
 
 result = obj.data;
 
@@ -167,5 +191,3 @@ result.forEach((obj) => {
     </div>`;
   restaurantList.innerHTML = restaurantCard;
 }) */
-
-
