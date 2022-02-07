@@ -14,7 +14,34 @@ fetch(url)
 
   }).then(function (obj) {
 
-    var el = document.getElementById('restaurant-names');
+    //const objects = obj.data
+
+    const objects = obj.data
+
+    // GET ARRAY OF ALL RESTAURANT NAMES
+    const names = objects.map((element) => element.restaurant_name);
+    console.log(names);
+
+    // GET ARRAY OF ALL RESTAURANT COUISINES
+    const cuisines = objects.map((element) => element.cuisines);
+    console.log(cuisines);
+
+    // GET ARRAY OF NAME AND CUISINES
+    const restaurantObj = objects.map((element) => ({
+      name: element.restaurant_name,
+      cuisines: element.cuisines,
+      hours: element.hours
+    }));
+    console.log(restaurantObj);
+
+    // FILTER ON CUISINES: CHINESE
+    const pizzaCusisines = objects.filter(
+      (element) => element.cuisines == "Chinese"
+      );
+    console.log(pizzaCusisines);
+    
+
+    /* var el = document.getElementById('restaurant-names');
     /* var arr = obj.data
       
     var newArr = arr.map(function(element){
@@ -25,9 +52,7 @@ fetch(url)
       
     el.innerText = JSON.stringify(newArr); */
 
-    
-    const objects = obj.data
- 
+    /*
     const filterFunc3 = (element) => {return element.restaurant_name == "Strip House"};
  
     const filteredNumbers2 = objects.filter(filterFunc3);
@@ -38,6 +63,7 @@ fetch(url)
 
     document.getElementById("restaurant-names").innerText = Object.values(filteredNumbers2);
     
+    */
 
     // create an array with all the data from json-file
     //result = obj.data
@@ -79,12 +105,15 @@ fetch(url)
       restaurantList.innerHTML = restaurantCard;
     }) */
 
+  //}).then (obj => render(obj))
+
   }).catch(function (error) {
 
   }).finally(function () {
 
   });
 
+/*
 let filteredArray = dataArray.filter((obj) => {
   return (restaurant_name == "Ho Lee")
 });
@@ -100,6 +129,15 @@ button.addEventListener("click", () => {
     }
   });
 });
+
+function render(obj)
+obj.data.forEach(element => {
+  result.innerHTML +=
+  <p>${element.name}</p>
+
+  })
+
+  function sort(obj) 
 
 /*
 //const objects = data.json;
