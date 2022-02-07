@@ -26,7 +26,8 @@ fetch(url)
     console.log(restaurantObj);
 
     // LIST WITH RESTURANTS
-    objects.forEach(element => {
+    
+    function listWithRestaurants() {
       restaurantList.innerHTML = objects.map(element => `
   <ul>
     <li>
@@ -35,7 +36,11 @@ fetch(url)
       <p>${element.hours}</p>
     </li>
   </ul>`).join('');
-    });
+    }
+
+    listWithRestaurants();
+
+    // FILTER CUISINES
 
     const button = document.querySelector("button");
     button.addEventListener("click", () => {
@@ -43,15 +48,16 @@ fetch(url)
       const pizzaCusisines = objects.filter(
         (element) => element.cuisines == "Chinese");
         console.log(pizzaCusisines); 
-        restaurantList.innerHTML = pizzaCusisines.map(element =>`
+       restaurantList.innerHTML = pizzaCusisines.map(element =>`
         <ul>
           <li>
             <h2>${element.restaurant_name}</h2>
             <p>${element.cuisines}</p>
             <p>${element.hours}</p>
           </li>
-        </ul>`).join('');
+        </ul>`).join(''); 
     }); 
+
 
   }).catch(function (error) {
 
