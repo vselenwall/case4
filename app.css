@@ -8,36 +8,75 @@
 header {
     height: 5vh;
     background-color: black;
+    
+}
+
+h1 {
+    color: white;
+    font-size: 2vh;
+    padding: 2px;
 }
 
 /* MAIN */
 
+.searchbar {
+    background-color: brown;
+    background-image: url("/images/backgroundsearch.jpg");
+    background-size: cover;
+    height: 25vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 
-#menu-items {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    height: 20vh;
 }
 
-#button1,
-.menu-item2,
-.menu-item3,
-.menu-item4 {
+input {
+    padding: 1.5vh;
+    border-radius: 1vh;
+    border-style: none;
+}
+
+#menu-items {
+    height: 20vh;
+    background-color: #E6D9CA;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2vh;
+}
+
+/*
+#button1
+ {
     background-color:bisque;
-    border: chocolate;
     border-style:none;
     display: grid;
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
     margin: 0.5vh;
+} */
+
+button {
+    background-color: white;
+    border-radius: 50vh;
+    border-style: none;
+    height: 8vh;
+    margin: 1vh;
+}
+
+.iconify {
+    font-size: 4vh;
 }
 
 #restaurant-names {
-    background-color:darkseagreen;
+    background-color:  #E6D9CA;
     padding: 2vh;
 }
 
+ul {
+    padding: 0;
+}
 
 li {
     background-color: white;

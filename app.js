@@ -34,7 +34,6 @@ fetch(url)
     // LIST WITH RESTURANTS
   
     listWithRestaurants();
-
     
 
   }).catch(function (error) {
