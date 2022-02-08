@@ -55,16 +55,18 @@ fetch(url)
   }
 
   // FILTER CUISINES
-    // Chinese
+    // Burgers
 
     const buttonOne = document.getElementById("b-one");
-    buttonOne.addEventListener("click", () => {
+    buttonOne.addEventListener("click", burgersCuisines);
+    
+    function burgersCuisines(){
   
-      const chineseCusisines = result.filter(
-        (element) => element.cuisines.includes("Chinese"));
-        console.log(chineseCusisines); 
+      const burgersCusisines = result.filter(
+        (element) => element.cuisines.includes("Burgers"));
+        console.log(burgersCusisines); 
 
-       restaurantList.innerHTML = chineseCusisines.map(element =>`
+       restaurantList.innerHTML = burgersCusisines.map(element =>`
         <ul>
           <li>
             <h2>${element.restaurant_name}</h2>
@@ -72,31 +74,14 @@ fetch(url)
             <p>${element.hours}</p>
           </li>
         </ul>`).join('');
-    }); 
+    }; 
 
     // American
 
     const buttonTwo = document.getElementById("b-two");
-    buttonTwo.addEventListener("click", () => {
+    buttonTwo.addEventListener("click", pizzaCusisines);
   
-      const americanCusisines = result.filter(
-        (element) => element.cuisines.includes("American"));
-        console.log(americanCusisines); 
-       restaurantList.innerHTML = americanCusisines.map(element =>`
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join(''); 
-    }); 
-
-    // Pizza
-
-    const buttonThree = document.getElementById("b-three");
-    buttonThree.addEventListener("click", () => {
-  
+    function pizzaCusisines() {
       const pizzaCusisines = result.filter(
         (element) => element.cuisines.includes("Pizza"));
         console.log(pizzaCusisines); 
@@ -108,13 +93,33 @@ fetch(url)
             <p>${element.hours}</p>
           </li>
         </ul>`).join(''); 
-    }); 
+    }; 
+
+    // Pizza
+
+    const buttonThree = document.getElementById("b-three");
+    buttonThree.addEventListener("click", chineseCusisines);
+  
+    function chineseCusisines() {
+      const chineseCusisines = result.filter(
+        (element) => element.cuisines.includes("Chinese"));
+        console.log(chineseCusisines); 
+       restaurantList.innerHTML = chineseCusisines.map(element =>`
+        <ul>
+          <li>
+            <h2>${element.restaurant_name}</h2>
+            <p>${element.cuisines}</p>
+            <p>${element.hours}</p>
+          </li>
+        </ul>`).join(''); 
+    }; 
 
     // Sushi
 
     const buttonFour = document.getElementById("b-four");
-    buttonFour.addEventListener("click", () => {
+    buttonFour.addEventListener("click", sushiCusisines);
   
+    function sushiCusisines() {
       const sushiCusisines = result.filter(
         (element) => element.cuisines.includes("Sushi"));
         console.log(sushiCusisines); 
@@ -127,4 +132,24 @@ fetch(url)
             <p>${element.hours}</p>
           </li>
         </ul>`).join(''); 
-    }); 
+    }; 
+
+
+    // Places Nearby
+
+    const restaurantsNearby = document.getElementById("search");
+    restaurantsNearby.addEventListener("click", geoLat);
+  
+    function geoLat() {
+      const geoLat = result.filter(
+        (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
+        console.log(geoLat); 
+       restaurantList.innerHTML = geoLat.map(element =>`
+        <ul>
+          <li>
+            <h2>${element.restaurant_name}</h2>
+            <p>${element.cuisines}</p>
+            <p>${element.hours}</p>
+          </li>
+        </ul>`).join(''); 
+    }; 
