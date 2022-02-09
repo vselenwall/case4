@@ -44,15 +44,17 @@ fetch(url3)
         .then(obj => render(obj))
         //.catch(error => renderError(error));
 
+    function filter(obj) {
+      return obj;
+  
+    } 
+
     function render(obj){
       result = obj.data
       listWithRestaurants();
     }
 
-    function filter(obj) {
-      return obj;
-    }
-
+ 
 
 
 /* fetch(url)
@@ -177,39 +179,39 @@ function geoLat() {
         </ul>`).join('');
 }; */
 
-const cityPetaluma = document.getElementById("petaluma");
-cityPetaluma.addEventListener("click", chooseStatePetaluma);
+const cityHonolulu = document.getElementById("honolulu");
+cityHonolulu.addEventListener("click", chooseCityHonolulu);
 
 //document.getElementById("mySelect").selectedIndex = "2";
 //var select = document.getElementById('language'); 
 //var value = stateOpt.options[stateOpt.selectedIndex].value;
 //console.log(value);
 
-function chooseStatePetaluma(){
-  const chooseState = result.filter(
+function chooseCityHonolulu() {
+  const chooseCity = result.filter(
     (element) => element.address.city.includes("Honolulu" && "HONOLULU"));
-    console.log(chooseState);
-    renderRestaurants(chooseState);
+    console.log(chooseCity);
+    renderRestaurants(chooseCity);
 }
 
 const cityPicoRivera = document.getElementById("picorivera");
-cityPicoRivera.addEventListener("click", chooseStatePico);
+cityPicoRivera.addEventListener("click", chooseCityPico);
 
-function chooseStatePico(){
-  const chooseStateTwo = result.filter(
+function chooseCityPico(){
+  const chooseCityPico = result.filter(
     (element) => element.address.city.includes("Hilo" && "HILO"));
-    console.log(chooseStateTwo);
-    renderRestaurants(chooseStateTwo);
+    console.log(chooseCityPico);
+    renderRestaurants(chooseCityPico);
 }
 
 const cityHickam = document.getElementById("hickam");
-cityHickam.addEventListener("click", chooseStateHickam);
+cityHickam.addEventListener("click", chooseCityHickam);
 
-function chooseStateHickam(){
-  const chooseStateHickam = result.filter(
+function chooseCityHickam(){
+  const chooseCityHickam = result.filter(
     (element) => element.address.city.includes("Hickam Village" && "Hickam AFB"));
-    console.log(chooseStateHickam);
-    renderRestaurants(chooseStateHickam);
+    console.log(chooseCityHickam);
+    renderRestaurants(chooseCityHickam);
 }
 
 
@@ -228,7 +230,7 @@ function chooseStateTwo(){
   }
       }
 
- /*  const chooseState = result.filter(
+ const chooseState = result.filter(
     (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
   console.log(chooseState);
 
@@ -240,4 +242,3 @@ function chooseStateTwo(){
             <p>${element.hours}</p>
           </li>
         </ul>`).join(''); */
-
