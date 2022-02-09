@@ -1,18 +1,61 @@
 let url = 'https://api.documenu.com/v2/restaurants/state/NY?key=60301177efaa8635e35c293b98ac13a1'
 let url2 = 'https://api.documenu.com/v2/restaurants/state/FL?key=60301177efaa8635e35c293b98ac13a1'
+let url3 = 'https://api.documenu.com/v2/restaurants/state/HI?key=60301177efaa8635e35c293b98ac13a1'
+let url4 = 'https://api.documenu.com/v2/restaurants/state/CA?key=60301177efaa8635e35c293b98ac13a1'
+let url5 = 'https://api.documenu.com/v2/restaurants/state/WA?key=60301177efaa8635e35c293b98ac13a1'
 
-//console.log(url2);
+//console.log(url5);
 
 url = 'data.json'
-url2 = 'data2.json'
+url2 = 'data-fl.json'
+url3 = 'data-hi.json'
+url4 = 'data-ca.json'
+url5 = 'data-wa.json'
+
 //let restaurantNames = []
 //const objects = obj.data
 //let dataArray = []
 let result = {};
+let resulttwo = {};
 
 const restaurantList = document.getElementById('restaurant-names');
 
-fetch(url)
+
+/* fetch(url3)
+        .then(response => response.json())
+        .then(object => filter(object))
+        .then(object => render(object))
+        //.catch(error => renderError(error));
+
+    function render(object){
+      resulttwo = object.data
+      listWithRestaurants();
+      console.log(resulttwo);
+    }
+
+    function filter(object) {
+      return object;
+    } */
+
+
+fetch(url3)
+        .then(response => response.json())
+        .then(obj => filter(obj))
+        .then(obj => render(obj))
+        //.catch(error => renderError(error));
+
+    function render(obj){
+      result = obj.data
+      listWithRestaurants();
+    }
+
+    function filter(obj) {
+      return obj;
+    }
+
+
+
+/* fetch(url)
   .then(function (response) {
     console.log(response);
     return response.json();
@@ -23,28 +66,21 @@ fetch(url)
     //const objects = obj.data
     //console.log(result);
 
-    /*// GET ARRAY OF NAME AND CUISINES
-    const restaurantObj = objects.map((element) => ({
-      name: element.restaurant_name,
-      cuisines: element.cuisines,
-      hours: element.hours
-    }));
-    console.log(restaurantObj); */
-
     // LIST WITH RESTURANTS
-  
+
     listWithRestaurants();
-    
+
 
   }).catch(function (error) {
 
   }).finally(function () {
 
   });
+ */
 
-  function listWithRestaurants() {
-    //result = obj.data
-    restaurantList.innerHTML = result.map(element => `
+function listWithRestaurants() {
+  //result = obj.data
+  restaurantList.innerHTML = result.map(element => `
 <ul>
   <li>
     <h2>${element.restaurant_name}</h2>
@@ -52,21 +88,86 @@ fetch(url)
     <p>${element.hours}</p>
   </li>
 </ul>`).join('');
-  }
+}
 
-  // FILTER CUISINES
-    // Burgers
+function renderRestaurants(result){
+  restaurantList.innerHTML = result.map(element => `
+  <ul>
+    <li>
+      <h2>${element.restaurant_name}</h2>
+      <p>${element.cuisines}</p>
+      <p>${element.hours}</p>
+    </li>
+  </ul>`).join('');
 
-    const buttonOne = document.getElementById("b-one");
-    buttonOne.addEventListener("click", burgersCuisines);
-    
-    function burgersCuisines(){
-  
-      const burgersCusisines = result.filter(
-        (element) => element.cuisines.includes("Burgers"));
-        console.log(burgersCusisines); 
+}
 
-       restaurantList.innerHTML = burgersCusisines.map(element =>`
+// FILTER CUISINES
+// Burgers
+
+const buttonOne = document.getElementById("b-one");
+buttonOne.addEventListener("click", burgersCuisines);
+
+function burgersCuisines() {
+
+  const burgersCusisines = result.filter(
+    (element) => element.cuisines.includes("Burgers"));
+  console.log(burgersCusisines);
+
+  renderRestaurants(burgersCusisines);
+
+};
+
+// American
+
+const buttonTwo = document.getElementById("b-two");
+buttonTwo.addEventListener("click", pizzaCusisines);
+
+function pizzaCusisines() {
+  const pizzaCusisines = result.filter(
+    (element) => element.cuisines.includes("Pizza"));
+  console.log(pizzaCusisines);
+  renderRestaurants(pizzaCusisines);
+
+};
+
+// Pizza
+
+const buttonThree = document.getElementById("b-three");
+buttonThree.addEventListener("click", chineseCusisines);
+
+function chineseCusisines() {
+  const chineseCusisines = result.filter(
+    (element) => element.cuisines.includes("Chinese"));
+  console.log(chineseCusisines);
+  renderRestaurants(chineseCusisines);
+};
+
+// Sushi
+
+const buttonFour = document.getElementById("b-four");
+buttonFour.addEventListener("click", sushiCusisines);
+
+function sushiCusisines() {
+  const sushiCusisines = result.filter(
+    (element) => element.cuisines.includes("Sushi"));
+  console.log(sushiCusisines);
+  renderRestaurants(sushiCusisines);
+
+};
+
+
+// Places Nearby
+
+/*
+const restaurantsNearby = document.getElementById("search");
+restaurantsNearby.addEventListener("click", geoLat);
+
+function geoLat() {
+  const geoLat = result.filter(
+    (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
+  console.log(geoLat);
+  restaurantList.innerHTML = geoLat.map(element => `
         <ul>
           <li>
             <h2>${element.restaurant_name}</h2>
@@ -74,82 +175,69 @@ fetch(url)
             <p>${element.hours}</p>
           </li>
         </ul>`).join('');
-    }; 
+}; */
 
-    // American
+const cityPetaluma = document.getElementById("petaluma");
+cityPetaluma.addEventListener("click", chooseStatePetaluma);
 
-    const buttonTwo = document.getElementById("b-two");
-    buttonTwo.addEventListener("click", pizzaCusisines);
-  
-    function pizzaCusisines() {
-      const pizzaCusisines = result.filter(
-        (element) => element.cuisines.includes("Pizza"));
-        console.log(pizzaCusisines); 
-       restaurantList.innerHTML = pizzaCusisines.map(element =>`
+//document.getElementById("mySelect").selectedIndex = "2";
+//var select = document.getElementById('language'); 
+//var value = stateOpt.options[stateOpt.selectedIndex].value;
+//console.log(value);
+
+function chooseStatePetaluma(){
+  const chooseState = result.filter(
+    (element) => element.address.city.includes("Honolulu" && "HONOLULU"));
+    console.log(chooseState);
+    renderRestaurants(chooseState);
+}
+
+const cityPicoRivera = document.getElementById("picorivera");
+cityPicoRivera.addEventListener("click", chooseStatePico);
+
+function chooseStatePico(){
+  const chooseStateTwo = result.filter(
+    (element) => element.address.city.includes("Hilo" && "HILO"));
+    console.log(chooseStateTwo);
+    renderRestaurants(chooseStateTwo);
+}
+
+const cityHickam = document.getElementById("hickam");
+cityHickam.addEventListener("click", chooseStateHickam);
+
+function chooseStateHickam(){
+  const chooseStateHickam = result.filter(
+    (element) => element.address.city.includes("Hickam Village" && "Hickam AFB"));
+    console.log(chooseStateHickam);
+    renderRestaurants(chooseStateHickam);
+}
+
+
+
+/*
+function chooseStateTwo(){
+
+  if(stateOpt.value === "petaluma") {
+
+    chooseState();
+    
+    console.log("Hawaii");
+
+  } else {
+    console.log("fel");
+  }
+      }
+
+ /*  const chooseState = result.filter(
+    (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
+  console.log(chooseState);
+
+  restaurantList.innerHTML = chooseState.map(element => `
         <ul>
           <li>
             <h2>${element.restaurant_name}</h2>
             <p>${element.cuisines}</p>
             <p>${element.hours}</p>
           </li>
-        </ul>`).join(''); 
-    }; 
+        </ul>`).join(''); */
 
-    // Pizza
-
-    const buttonThree = document.getElementById("b-three");
-    buttonThree.addEventListener("click", chineseCusisines);
-  
-    function chineseCusisines() {
-      const chineseCusisines = result.filter(
-        (element) => element.cuisines.includes("Chinese"));
-        console.log(chineseCusisines); 
-       restaurantList.innerHTML = chineseCusisines.map(element =>`
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join(''); 
-    }; 
-
-    // Sushi
-
-    const buttonFour = document.getElementById("b-four");
-    buttonFour.addEventListener("click", sushiCusisines);
-  
-    function sushiCusisines() {
-      const sushiCusisines = result.filter(
-        (element) => element.cuisines.includes("Sushi"));
-        console.log(sushiCusisines); 
-        
-        restaurantList.innerHTML = sushiCusisines.map(element =>`
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join(''); 
-    }; 
-
-
-    // Places Nearby
-
-    const restaurantsNearby = document.getElementById("search");
-    restaurantsNearby.addEventListener("click", geoLat);
-  
-    function geoLat() {
-      const geoLat = result.filter(
-        (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
-        console.log(geoLat); 
-       restaurantList.innerHTML = geoLat.map(element =>`
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join(''); 
-    }; 

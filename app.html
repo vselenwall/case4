@@ -16,13 +16,26 @@
 <body>
 
     <header>
-        <h1>NY Street Food</h1>
+        <h1>US Street Food</h1>
     </header>
 
     <main>
 
         <section class="searchbar">
-            <input type="text" placeholder="What's your favorite food?">
+            <label for="states"><h2>Where are you?</h2></label>
+
+            <button id="petaluma">Honolulu</button>
+            <button id="picorivera">Hilo</button>
+            <button id="hickam">Hickam Village</button>
+            <!--<select id="states">
+                <option value="newyork" selected>New York</option>
+                <option value="florida">Petaluma</option>
+                <option value="hawaii">Pico Rivera</option>
+                <option value="california">California</option>
+                <option value="washington">Washington</option>
+            </select>-->
+
+            <!--<input type="text" placeholder="What's your favorite food?">-->
         </section>
         
         <!-- <a href="https://www.latlong.net/c/?lat=40.712776&long=-74.005974" target="_blank">(40.712776, -74.005974)</a> -->
@@ -47,20 +60,20 @@
     </button>
     </section>
 
-    <section class="long-lat">
+    <!-- <section class="long-lat">
         <h2>Resturants nearby</h2>
         <button id="search">Search</button>
 
-        <!--<input type="text" placeholder="Longitud...">
-        <input type="text" placeholder="Latitud...">-->
+        <input type="text" placeholder="Longitud...">
+        <input type="text" placeholder="Latitud...">
         
-        <!--<div class="distance">
+        <div class="distance">
         <h3>Choose distance</h3>
         <label for="opt-one"><input type="radio"><p>0-5 km</p></label>
         <label for="opt-two"><input type="radio"><p>5-10 km</p></label>
         <label for="opt-three"><input type="radio"><p>> 1 mil</p></label>
-        </div>-->
-    </section>
+        </div>
+    </section>-->
 
     <section>
         <div id="restaurant-names"></div>
