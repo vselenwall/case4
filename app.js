@@ -184,26 +184,6 @@ function drinksCusisines() {
 
 };
 
-// Places Nearby
-
-/*
-const restaurantsNearby = document.getElementById("search");
-restaurantsNearby.addEventListener("click", geoLat);
-
-function geoLat() {
-  const geoLat = result.filter(
-    (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
-  console.log(geoLat);
-  restaurantList.innerHTML = geoLat.map(element => `
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join('');
-}; */
-
 /* const cityHonolulu = document.getElementById("honolulu");
 cityHonolulu.addEventListener("click", chooseCityHonolulu); */
 
@@ -222,6 +202,7 @@ function chooseCityHilo(){
     (element) => element.address.city.includes("Hilo" && "HILO"));
     console.log(chooseCityPico);
     renderRestaurants(chooseCityPico);
+
 }
 
 /* const cityHickam = document.getElementById("hickam");
@@ -234,6 +215,29 @@ function chooseCityHickam(){
     renderRestaurants(chooseCityHickam);
 }
 
+function chooseCityHanalei(){
+  const chooseCityHanalei = result.filter(
+    (element) => element.address.city.includes("Hanalei"));
+    
+    console.log(chooseCityHanalei);
+    renderRestaurants(chooseCityHanalei);
+}
+
+// FILTER ON CITY
+
+const test = document.getElementById("test");
+test.addEventListener("click", filteredArray);
+
+function cityFilter(){
+  chooseCityHonolulu(pizzaCusisines());
+}
+
+function filteredArray() {
+var filteredArray  = chooseCityHonolulu.filter(
+  (element) => element(pizzaCusisines));
+  console.log(filteredArray);
+  renderRestaurants(filteredArray);
+}
 
 
 //document.getElementById("mySelect").selectedIndex = "2";
@@ -260,11 +264,18 @@ function dropdownCity(){
 
     chooseCityHickam();
 
-  } else {
+  } else if(stateOpt.value === "hanalei") {
+    console.log("Hanalei")
+
+    chooseCityHanalei();
+
+    }else {
     listWithRestaurants();
     console.log("fel");
   }
       }
+
+     
 
 
       //block.setAttribute("style", "text-align:center");
