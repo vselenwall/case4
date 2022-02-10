@@ -33,7 +33,7 @@
         "price_range": "$$$$",
         "price_range_num": 4,
         "restaurant_id": 19559930155922820,
-        "cuisines": [""],
+        "cuisines": ["Chinese", "Coffee & Tea"],
         "address": {
             "city": "Holualoa",
             "state": "HI",
@@ -165,7 +165,7 @@
         "price_range": "",
         "price_range_num": 0,
         "restaurant_id": 19721700155085500,
-        "cuisines": [""],
+        "cuisines": ["American", "Burgers"],
         "address": {
             "city": "Hilo",
             "state": "HI",
@@ -275,7 +275,7 @@
         "price_range": "$",
         "price_range_num": 1,
         "restaurant_id": 19723701155085176,
-        "cuisines": [""],
+        "cuisines": ["Ice cream", "Coffee & Tea"],
         "address": {
             "city": "Hilo",
             "state": "HI",
@@ -473,7 +473,7 @@
         "price_range": "$$$$",
         "price_range_num": 4,
         "restaurant_id": 22203293159495150,
-        "cuisines": [""],
+        "cuisines": ["Chinese", "Coffee & Tea"],
         "address": {
             "city": "Hanalei",
             "state": "HI",
@@ -517,7 +517,7 @@
         "price_range": "$$$",
         "price_range_num": 3,
         "restaurant_id": 21591088158102784,
-        "cuisines": [""],
+        "cuisines": ["Drinks"],
         "address": {
             "city": "Haleiwa",
             "state": "HI",
@@ -539,7 +539,7 @@
         "price_range": "$$$",
         "price_range_num": 3,
         "restaurant_id": 21588311158103110,
-        "cuisines": [""],
+        "cuisines": ["Ice cream", "Coffee & Tea", "Drinks"],
         "address": {
             "city": "Haleiwa",
             "state": "HI",

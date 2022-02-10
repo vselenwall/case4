@@ -52,6 +52,7 @@ fetch(url3)
     function render(obj){
       result = obj.data
       listWithRestaurants();
+
     }
 
  
@@ -84,6 +85,7 @@ function listWithRestaurants() {
   //result = obj.data
   restaurantList.innerHTML = result.map(element => `
 <ul>
+<div class="imagediv"></div>
   <li>
     <h2>${element.restaurant_name}</h2>
     <p>${element.cuisines}</p>
@@ -95,6 +97,7 @@ function listWithRestaurants() {
 function renderRestaurants(result){
   restaurantList.innerHTML = result.map(element => `
   <ul>
+  <div class="imagediv"></div>
     <li>
       <h2>${element.restaurant_name}</h2>
       <p>${element.cuisines}</p>
@@ -103,6 +106,8 @@ function renderRestaurants(result){
   </ul>`).join('');
 
 }
+
+
 
 // FILTER CUISINES
 // Burgers
@@ -115,7 +120,6 @@ function burgersCuisines() {
   const burgersCusisines = result.filter(
     (element) => element.cuisines.includes("Burgers"));
   console.log(burgersCusisines);
-
   renderRestaurants(burgersCusisines);
 
 };
@@ -148,16 +152,37 @@ function chineseCusisines() {
 // Sushi
 
 const buttonFour = document.getElementById("b-four");
-buttonFour.addEventListener("click", sushiCusisines);
+buttonFour.addEventListener("click", coffeeCusisines);
 
-function sushiCusisines() {
-  const sushiCusisines = result.filter(
-    (element) => element.cuisines.includes("Sushi"));
-  console.log(sushiCusisines);
-  renderRestaurants(sushiCusisines);
+function coffeeCusisines() {
+  const coffeeCusisines = result.filter(
+    (element) => element.cuisines.includes("Coffee & Tea"));
+  console.log(coffeeCusisines);
+  renderRestaurants(coffeeCusisines);
 
 };
 
+const buttonFive = document.getElementById("b-five");
+buttonFive.addEventListener("click", icecreamCusisines);
+
+function icecreamCusisines() {
+  const icecreamCusisines = result.filter(
+    (element) => element.cuisines.includes("Ice cream"));
+  console.log(icecreamCusisines);
+  renderRestaurants(icecreamCusisines);
+
+};
+
+const buttonSix = document.getElementById("b-six");
+buttonSix.addEventListener("click", drinksCusisines);
+
+function drinksCusisines() {
+  const drinksCusisines = result.filter(
+    (element) => element.cuisines.includes("Drinks"));
+  console.log(drinksCusisines);
+  renderRestaurants(drinksCusisines);
+
+};
 
 // Places Nearby
 
@@ -179,13 +204,8 @@ function geoLat() {
         </ul>`).join('');
 }; */
 
-const cityHonolulu = document.getElementById("honolulu");
-cityHonolulu.addEventListener("click", chooseCityHonolulu);
-
-//document.getElementById("mySelect").selectedIndex = "2";
-//var select = document.getElementById('language'); 
-//var value = stateOpt.options[stateOpt.selectedIndex].value;
-//console.log(value);
+/* const cityHonolulu = document.getElementById("honolulu");
+cityHonolulu.addEventListener("click", chooseCityHonolulu); */
 
 function chooseCityHonolulu() {
   const chooseCity = result.filter(
@@ -194,18 +214,18 @@ function chooseCityHonolulu() {
     renderRestaurants(chooseCity);
 }
 
-const cityPicoRivera = document.getElementById("picorivera");
-cityPicoRivera.addEventListener("click", chooseCityPico);
+/* const cityPicoRivera = document.getElementById("picorivera");
+cityPicoRivera.addEventListener("click", chooseCityPico); */
 
-function chooseCityPico(){
+function chooseCityHilo(){
   const chooseCityPico = result.filter(
     (element) => element.address.city.includes("Hilo" && "HILO"));
     console.log(chooseCityPico);
     renderRestaurants(chooseCityPico);
 }
 
-const cityHickam = document.getElementById("hickam");
-cityHickam.addEventListener("click", chooseCityHickam);
+/* const cityHickam = document.getElementById("hickam");
+cityHickam.addEventListener("click", chooseCityHickam); */
 
 function chooseCityHickam(){
   const chooseCityHickam = result.filter(
@@ -216,29 +236,56 @@ function chooseCityHickam(){
 
 
 
-/*
-function chooseStateTwo(){
+//document.getElementById("mySelect").selectedIndex = "2";
+//var select = document.getElementById('language'); 
+let stateOpt = document.getElementById("states");
+stateOpt.addEventListener("change", dropdownCity);
+//var value = stateOpt.options[stateOpt.selectedIndex].value;
+//console.log(value);
 
-  if(stateOpt.value === "petaluma") {
+function dropdownCity(){
 
-    chooseState();
-    
-    console.log("Hawaii");
+  if(stateOpt.value === "hilo") {
+    console.log("Hilo");
+
+    chooseCityHilo();
+
+  } else if(stateOpt.value === "honolulu") {
+    console.log("Honolulu");
+
+    chooseCityHonolulu();
+
+  } else if(stateOpt.value === "hickamvillage") {
+    console.log("Hickam Village");
+
+    chooseCityHickam();
 
   } else {
+    listWithRestaurants();
     console.log("fel");
   }
       }
 
- const chooseState = result.filter(
-    (element) => element.geo.lat === 40.733691 && element.geo.lon === -73.992963);
-  console.log(chooseState);
 
-  restaurantList.innerHTML = chooseState.map(element => `
-        <ul>
-          <li>
-            <h2>${element.restaurant_name}</h2>
-            <p>${element.cuisines}</p>
-            <p>${element.hours}</p>
-          </li>
-        </ul>`).join(''); */
+      //block.setAttribute("style", "text-align:center");
+     
+     
+     /* function getImage (element) {
+        if(element.cuisines === "Burgers"){
+          imagediv.createElement("class")
+        }
+      }
+
+
+      /*
+      // ADD PICTURES
+
+      switch (element) {
+        case element.cuisines === "Burgers"
+        ul.setAttribute("class");
+          
+          break;
+      
+        default:
+          break;
+      }*/

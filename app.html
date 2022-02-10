@@ -16,7 +16,7 @@
 <body>
 
     <header>
-        <h1>US Street Food</h1>
+        <h1>Hawaii Street Food</h1>
     </header>
 
     <main>
@@ -24,17 +24,17 @@
         <section class="searchbar">
             <label for="states"><h2>Where are you?</h2></label>
 
+            <!--
             <button id="honolulu">Honolulu</button>
             <button id="picorivera">Hilo</button>
-            <button id="hickam">Hickam Village</button>
-            <!--<select id="states">
-                <option value="newyork" selected>New York</option>
-                <option value="florida">Petaluma</option>
-                <option value="hawaii">Pico Rivera</option>
-                <option value="california">California</option>
-                <option value="washington">Washington</option>
-            </select>-->
+            <button id="hickam">Hickam Village</button>-->
 
+            <select id="states">
+                <option value="all">All restaurants</option>
+                <option value="honolulu" id="val1">Honolulu</option>
+                <option value="hilo" id="val2">Hilo</option>
+                <option value="hickamvillage" id="val3">Hickam Village</option>
+            </select>
             <!--<input type="text" placeholder="What's your favorite food?">-->
         </section>
         
@@ -49,16 +49,20 @@
           <option value="french">French</option>
         </select> -->
 
-    <section id="menu-items">
-    <button id="b-one"><span class="iconify" data-icon="majesticons:burger-line"></span>
-    </button>
-    <button id="b-two"><span class="iconify" data-icon="fluent:food-pizza-20-regular"></span>
-    </button>
-    <button id="b-three"><span class="iconify" data-icon="icon-park-outline:noodles"></span>
-    </button>
-    <button id="b-four"><span class="iconify" data-icon="maki:restaurant-sushi"></span>
-    </button>
-    </section>
+        <section id="menu-items">
+            <button id="b-one"><span class="iconify" data-icon="majesticons:burger-line"></span>
+            </button>
+            <button id="b-two"><span class="iconify" data-icon="fluent:food-pizza-20-regular"></span>
+            </button>
+            <button id="b-three"><span class="iconify" data-icon="icon-park-outline:noodles"></span>
+            </button>
+            <button id="b-four"><span class="iconify" data-icon="gg:coffee"></span>
+            </button>
+            <button id="b-five"><span class="iconify" data-icon="ion:ice-cream-outline"></span>
+            </button>
+            <button id="b-six"><span class="iconify" data-icon="ep:cold-drink"></span>
+            </button>
+            </section>
 
     <!-- <section class="long-lat">
         <h2>Resturants nearby</h2>
