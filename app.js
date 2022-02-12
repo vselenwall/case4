@@ -55,7 +55,6 @@ fetch(url3)
 
     }
 
- 
 
 
 /* fetch(url)
@@ -112,7 +111,7 @@ function renderRestaurants(result){
 // FILTER CUISINES
 // Burgers
 
-const buttonOne = document.getElementById("b-one");
+let buttonOne = document.getElementById("b-one");
 buttonOne.addEventListener("click", burgersCuisines);
 
 function burgersCuisines() {
@@ -225,6 +224,7 @@ function chooseCityHanalei(){
 
 // FILTER ON CITY
 
+/*
 const test = document.getElementById("test");
 test.addEventListener("click", filteredArray);
 
@@ -237,7 +237,7 @@ var filteredArray  = chooseCityHonolulu.filter(
   (element) => element(pizzaCusisines));
   console.log(filteredArray);
   renderRestaurants(filteredArray);
-}
+} */
 
 
 //document.getElementById("mySelect").selectedIndex = "2";
@@ -247,12 +247,57 @@ stateOpt.addEventListener("change", dropdownCity);
 //var value = stateOpt.options[stateOpt.selectedIndex].value;
 //console.log(value);
 
+/*
+function cityHiloBurger () {
+    if(foodFilter.className === "hilo") {
+      console.log("It works")
+    }
+  } */
+
+  /*
+  let showBurger = document.getElementById("b-one");
+  showBurger.addEventListener("click", () => {
+    let asArray = result.filter((ele) => ele.city.address === "Hilo");
+    console.log(asArray);
+  }) */
+
 function dropdownCity(){
 
   if(stateOpt.value === "hilo") {
     console.log("Hilo");
 
+    let foodFilter = document.getElementById("restaurant-names");
+    foodFilter.setAttribute("class", "hilo");
+
     chooseCityHilo();
+  
+    let showBurger = document.getElementById("b-one");
+    showBurger.addEventListener("click", () => {
+      if(foodFilter.className === "hilo") {
+
+        let burgerHilo = result.filter(
+          (element) => element.cuisines.includes("Burgers"));
+          result = burgerHilo;
+      }
+    })
+
+    let showPizza = document.getElementById("b-two");
+    showPizza.addEventListener("click", () => {
+      if(foodFilter.className === "hilo") {
+
+        let pizzaHilo = result.filter(
+          (element) => element.cuisines.includes("Pizza"));
+          result = pizzaHilo;
+      }})
+
+      let showChinese = document.getElementById("b-three");
+      showChinese.addEventListener("click", () => {
+        if(foodFilter.className === "hilo") {
+  
+          let chineseHilo = result.filter(
+            (element) => element.cuisines.includes("Chinese"));
+            result = chineseHilo;
+        }})
 
   } else if(stateOpt.value === "honolulu") {
     console.log("Honolulu");
@@ -275,6 +320,21 @@ function dropdownCity(){
   }
       }
 
+
+    // FILTER ON CITY FIRST
+
+
+
+
+      /*
+      switch (element.cuisines[0]) {
+        case "Chinese":
+
+        document.getElementsByTagName("div").setAttribute("class", "imagediv");
+          
+          break;
+    
+      } 
      
 
 
