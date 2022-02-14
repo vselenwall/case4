@@ -51,7 +51,7 @@ fetch(url3)
 
     function render(obj){
       result = obj.data
-      //listWithRestaurants();
+      listWithRestaurants();
     } 
 
 
