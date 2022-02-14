@@ -118,7 +118,7 @@ document.getElementsByTagName("p").innerHTML = res; */
 // Burgers
 
 let buttonOne = document.getElementById("b-one");
-buttonOne.addEventListener("click", filterAndRender("Burgers"));
+buttonOne.addEventListener("click", filterAndRender);
 
 
  function filterCuisines(cuisine){
@@ -131,8 +131,12 @@ buttonOne.addEventListener("click", filterAndRender("Burgers"));
 
 } 
 
-function filterAndRender(cuisine){
+  function filterAndRender(event){
   console.log("hej");
+
+  let button = event.target.closest("button");
+  let cuisine = button.firstElementChild.getAttribute("data-cuisine");
+  console.log(button, cuisine);
   
   let filteredList = result.filter((restaurant) => {
 
@@ -157,12 +161,11 @@ function filterAndRender(cuisine){
       }
     });
 
-    console.log(filteredList);
     return matchCity && matchCuisine;
   })
 
   renderRestaurants(filteredList);
-}
+} 
 
 function burgersCuisines() {
 
@@ -177,7 +180,7 @@ function burgersCuisines() {
 // American
 
 const buttonTwo = document.getElementById("b-two");
-buttonTwo.addEventListener("click", filterAndRender("Pizza"));
+buttonTwo.addEventListener("click", filterAndRender);
 
 
 /* document.addEventListener("keydown", e => {
@@ -197,7 +200,7 @@ function pizzaCusisines() {
 // Pizza
 
 const buttonThree = document.getElementById("b-three");
-buttonThree.addEventListener("click", filterAndRender("Chinese"));
+buttonThree.addEventListener("click", filterAndRender);
 
 function chineseCusisines() {
   const chineseCusisines = result.filter(
@@ -210,7 +213,7 @@ function chineseCusisines() {
 // Sushi
 
 const buttonFour = document.getElementById("b-four");
-buttonFour.addEventListener("click", filterAndRender("Coffee & Tea"));
+buttonFour.addEventListener("click", filterAndRender);
 
 function coffeeCusisines() {
   const coffeeCusisines = result.filter(
@@ -221,7 +224,7 @@ function coffeeCusisines() {
 };
 
 const buttonFive = document.getElementById("b-five");
-buttonFive.addEventListener("click", filterAndRender("Ice cream"));
+buttonFive.addEventListener("click", filterAndRender);
 
 function icecreamCusisines() {
   const icecreamCusisines = result.filter(
@@ -232,7 +235,7 @@ function icecreamCusisines() {
 };
 
 const buttonSix = document.getElementById("b-six");
-buttonSix.addEventListener("click", filterAndRender("Drinks"));
+buttonSix.addEventListener("click", filterAndRender);
 
 function drinksCusisines() {
   const drinksCusisines = result.filter(
