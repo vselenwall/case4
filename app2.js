@@ -191,3 +191,54 @@ result.forEach((obj) => {
     </div>`;
   restaurantList.innerHTML = restaurantCard;
 }) */
+
+
+/* SHOW CUISINES 
+
+let showPizza = document.getElementById("b-two");
+showPizza.addEventListener("click", () => {
+  if(foodFilter.className === "hilo") {
+
+    let pizzaHilo = result.filter(
+      (element) => element.cuisines.includes("Pizza"));
+      result = pizzaHilo;
+  }})
+
+  let showChinese = document.getElementById("b-three");
+  showChinese.addEventListener("click", () => {
+    if(foodFilter.className === "hilo") {
+
+      let chineseHilo = result.filter(
+        (element) => element.cuisines.includes("Chinese"));
+        result = chineseHilo;
+    }})
+
+    let showCoffee = document.getElementById("b-four");
+    showCoffee.addEventListener("click", () => {
+      if(foodFilter.className === "hilo") {
+
+        let coffeeHilo = result.filter(
+          (element) => element.cuisines.includes("Coffee & Tea"));
+          result = coffeeHilo;
+      }})
+
+      
+    let showIcecream = document.getElementById("b-five");
+    showIcecream.addEventListener("click", () => {
+      if(foodFilter.className === "hilo") {
+
+        let icecreamHilo = result.filter(
+          (element) => element.cuisines.includes("Ice cream"));
+          result = icecreamHilo;
+      }})
+
+      let showDrinks = document.getElementById("b-six");
+      showDrinks.addEventListener("click", () => {
+        if(foodFilter.className === "hilo") {
+  
+          let drinksHilo = result.filter(
+            (element) => element.cuisines.includes("Drinks"));
+            result = drinksHilo;
+        }})
+ */
+        

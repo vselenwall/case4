@@ -84,6 +84,7 @@ button {
     scroll-snap-align: start;
 }
 
+
 .selected {
     background-color: aquamarine;
 }
@@ -119,14 +120,14 @@ ul {
     display: grid;
     width: 100%;
     background-color: white;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     margin-bottom: 2vh;
     border-radius: 0.5vh;
 }
 
 li {
     background-color: white;
-    margin: 3vh;
+    margin: 2vh;
     padding: 1vh;
     border-radius: 0.2rem;
     list-style: none;
@@ -147,9 +148,19 @@ h2 {
     font-size: 2.5vh;
 }
 
+h3 {
+    font-size: 1.5vh;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
 #states {
     border-radius: 1vh;
     border-style: none;
     padding: 2vh;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+p, h2, h3 {
+    margin: 0.5vh;
 }

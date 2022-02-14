@@ -15,8 +15,8 @@ url5 = 'data-wa.json'
 //let restaurantNames = []
 //const objects = obj.data
 //let dataArray = []
-let result = {};
-let resulttwo = {};
+let result = [];
+//let resulttwo = {};
 
 const restaurantList = document.getElementById('restaurant-names');
 
@@ -51,9 +51,8 @@ fetch(url3)
 
     function render(obj){
       result = obj.data
-      listWithRestaurants();
-
-    }
+      //listWithRestaurants();
+    } 
 
 
 
@@ -87,11 +86,14 @@ function listWithRestaurants() {
 <div class="imagediv"></div>
   <li>
     <h2>${element.restaurant_name}</h2>
-    <p>${element.cuisines}</p>
+    <h3>${element.cuisines}</h3>
     <p>${element.hours}</p>
+    <p>${element.address.street}</p>
   </li>
-</ul>`).join('');
+</ul>`).join(' ');
+
 }
+
 
 function renderRestaurants(result){
   restaurantList.innerHTML = result.map(element => `
@@ -99,26 +101,75 @@ function renderRestaurants(result){
   <div class="imagediv"></div>
     <li>
       <h2>${element.restaurant_name}</h2>
-      <p>${element.cuisines}</p>
+      <h3>${element.cuisines}</h3>
       <p>${element.hours}</p>
+      <p>${element.address.street}</p>
     </li>
-  </ul>`).join('');
+  </ul>`).join(' ');
 
 }
 
+/* let str = document.getElementsByTagName("p").innerHTML; 
+let res = str.replace(/,/ , "test");
+document.getElementsByTagName("p").innerHTML = res; */
 
 
 // FILTER CUISINES
 // Burgers
 
 let buttonOne = document.getElementById("b-one");
-buttonOne.addEventListener("click", burgersCuisines);
+buttonOne.addEventListener("click", filterAndRender("Burgers"));
+
+
+ function filterCuisines(cuisine){
+
+  const burgersCusisines = result.filter(
+    (element) => element.cuisines.includes(cuisine));
+  console.log(burgersCusisines);
+
+  renderRestaurants(burgersCusisines);
+
+} 
+
+function filterAndRender(cuisine){
+  console.log("hej");
+  
+  let filteredList = result.filter((restaurant) => {
+
+    let matchCity = false;
+    let matchCuisine = false;
+  
+    if(stateOpt.value === "all") {
+      matchCity = true;
+    } else {
+      if(stateOpt.value === restaurant.address.city.toLowerCase()){
+        matchCity = true;
+      }
+    }
+
+    if(cuisine == undefined || cuisine == "" || cuisine === "all"){
+      matchCuisine = true;
+    } 
+
+    restaurant.cuisines.forEach(str => {
+      if(str.trim().toLowerCase() === cuisine.trim().toLowerCase()) {
+        matchCuisine = true;
+      }
+    });
+
+    console.log(filteredList);
+    return matchCity && matchCuisine;
+  })
+
+  renderRestaurants(filteredList);
+}
 
 function burgersCuisines() {
 
   const burgersCusisines = result.filter(
     (element) => element.cuisines.includes("Burgers"));
   console.log(burgersCusisines);
+
   renderRestaurants(burgersCusisines);
 
 };
@@ -126,7 +177,14 @@ function burgersCuisines() {
 // American
 
 const buttonTwo = document.getElementById("b-two");
-buttonTwo.addEventListener("click", pizzaCusisines);
+buttonTwo.addEventListener("click", filterAndRender("Pizza"));
+
+
+/* document.addEventListener("keydown", e => {
+  if(e.key == "g"){
+    filterAndRender("Burgers");
+  }
+}) */
 
 function pizzaCusisines() {
   const pizzaCusisines = result.filter(
@@ -139,19 +197,20 @@ function pizzaCusisines() {
 // Pizza
 
 const buttonThree = document.getElementById("b-three");
-buttonThree.addEventListener("click", chineseCusisines);
+buttonThree.addEventListener("click", filterAndRender("Chinese"));
 
 function chineseCusisines() {
   const chineseCusisines = result.filter(
     (element) => element.cuisines.includes("Chinese"));
   console.log(chineseCusisines);
+
   renderRestaurants(chineseCusisines);
 };
 
 // Sushi
 
 const buttonFour = document.getElementById("b-four");
-buttonFour.addEventListener("click", coffeeCusisines);
+buttonFour.addEventListener("click", filterAndRender("Coffee & Tea"));
 
 function coffeeCusisines() {
   const coffeeCusisines = result.filter(
@@ -162,7 +221,7 @@ function coffeeCusisines() {
 };
 
 const buttonFive = document.getElementById("b-five");
-buttonFive.addEventListener("click", icecreamCusisines);
+buttonFive.addEventListener("click", filterAndRender("Ice cream"));
 
 function icecreamCusisines() {
   const icecreamCusisines = result.filter(
@@ -173,7 +232,7 @@ function icecreamCusisines() {
 };
 
 const buttonSix = document.getElementById("b-six");
-buttonSix.addEventListener("click", drinksCusisines);
+buttonSix.addEventListener("click", filterAndRender("Drinks"));
 
 function drinksCusisines() {
   const drinksCusisines = result.filter(
@@ -197,10 +256,10 @@ function chooseCityHonolulu() {
 cityPicoRivera.addEventListener("click", chooseCityPico); */
 
 function chooseCityHilo(){
-  const chooseCityPico = result.filter(
+  const chooseCityHilo = result.filter(
     (element) => element.address.city.includes("Hilo" && "HILO"));
-    console.log(chooseCityPico);
-    renderRestaurants(chooseCityPico);
+    console.log(chooseCityHilo);
+    renderRestaurants(chooseCityHilo);
 
 }
 
@@ -266,12 +325,12 @@ function dropdownCity(){
   if(stateOpt.value === "hilo") {
     console.log("Hilo");
 
-    let foodFilter = document.getElementById("restaurant-names");
-    foodFilter.setAttribute("class", "hilo");
+   /*  let foodFilter = document.getElementById("restaurant-names");
+    foodFilter.setAttribute("class", "hilo"); */
 
     chooseCityHilo();
   
-    let showBurger = document.getElementById("b-one");
+    /* let showBurger = document.getElementById("b-one");
     showBurger.addEventListener("click", () => {
       if(foodFilter.className === "hilo") {
 
@@ -279,30 +338,19 @@ function dropdownCity(){
           (element) => element.cuisines.includes("Burgers"));
           result = burgerHilo;
       }
-    })
+    }) */
 
-    let showPizza = document.getElementById("b-two");
-    showPizza.addEventListener("click", () => {
-      if(foodFilter.className === "hilo") {
 
-        let pizzaHilo = result.filter(
-          (element) => element.cuisines.includes("Pizza"));
-          result = pizzaHilo;
-      }})
-
-      let showChinese = document.getElementById("b-three");
-      showChinese.addEventListener("click", () => {
-        if(foodFilter.className === "hilo") {
-  
-          let chineseHilo = result.filter(
-            (element) => element.cuisines.includes("Chinese"));
-            result = chineseHilo;
-        }})
+  // HONOLULU FILTER BY CUISINES
 
   } else if(stateOpt.value === "honolulu") {
     console.log("Honolulu");
 
+  /*   let foodFilter = document.getElementById("restaurant-names");
+    foodFilter.setAttribute("class", "honolulu"); */
+
     chooseCityHonolulu();
+
 
   } else if(stateOpt.value === "hickamvillage") {
     console.log("Hickam Village");
@@ -321,16 +369,15 @@ function dropdownCity(){
       }
 
 
-    // FILTER ON CITY FIRST
 
+       switch (result.element) {
+        
+        case cuisines = "Burgers":
 
-
-
-      /*
-      switch (element.cuisines[0]) {
-        case "Chinese":
-
-        document.getElementsByTagName("div").setAttribute("class", "imagediv");
+        //imagediv.setAttribute("class", "imagediv")
+        //let div = document.getElementsByTagName("div").setAttribute("class", "imagediv");
+        let div = document.getElementById("pic");
+        div.setAttribute("class", "imagediv");
           
           break;
     
@@ -341,12 +388,21 @@ function dropdownCity(){
       //block.setAttribute("style", "text-align:center");
      
      
-     /* function getImage (element) {
+     function getImage (element) {
         if(element.cuisines === "Burgers"){
-          imagediv.createElement("class")
+          let image = document.getElementById("pic");
+          image.setAttribute("class", "imagediv");
+    
         }
       }
 
+      
+
+     /*  array.forEach(element => {
+          element.cuisines.includes("Burgers");
+          let image = document.getElementById("pic");
+          image.setAttribute("class", "imagediv");
+      }); */
 
       /*
       // ADD PICTURES
