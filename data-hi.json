@@ -55,7 +55,7 @@
         "price_range": "",
         "price_range_num": 0,
         "restaurant_id": 19721971155087080,
-        "cuisines": ["American", "Barbecue", "Hawaiian"],
+        "cuisines": ["American", "Barbecue"],
         "address": {
             "city": "HILO",
             "state": "HI",
@@ -363,7 +363,7 @@
         "price_range": "",
         "price_range_num": 0,
         "restaurant_id": 21342200157951600,
-        "cuisines": [""],
+        "cuisines": ["Sandwiches"],
         "address": {
             "city": "Hickam Village",
             "state": "HI",
@@ -385,7 +385,7 @@
         "price_range": "",
         "price_range_num": 0,
         "restaurant_id": 21333768157944840,
-        "cuisines": ["American", "Barbecue", "Hawaiian"],
+        "cuisines": ["American", "Barbecue"],
         "address": {
             "city": "Hickam AFB",
             "state": "HI",
@@ -495,7 +495,7 @@
         "price_range": "",
         "price_range_num": 0,
         "restaurant_id": 21336800157938700,
-        "cuisines": [""],
+        "cuisines": ["Sandwiches"],
         "address": {
             "city": "Hickam AFB",
             "state": "HI",

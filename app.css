@@ -4,144 +4,13 @@
     box-sizing: 0;
 }
 
-/* HEADER */
 
-header {
-    height: 5vh;
-    background-color: black;
-    
-}
+/* HEADINGS, PARAGRAPHS, FONTS - SAME FOR ALL PAGES */
 
 h1 {
     color: white;
     font-size: 2vh;
     padding: 2px;
-}
-
-/* MAIN */
-
-body{
-    background-color: #E6D9CA;
-}
-
-.searchbar {
-    background-color: brown;
-    background-image: url("/images/backgroundsearch.jpg");
-    background-size: cover;
-    height: 35vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-}
-
-input {
-    padding: 1.5vh;
-    border-radius: 1vh;
-    border-style: none;
-}
-
-#menu-items {
-    height: 10vh;
-    background-color:   #e2dad1;
-    display: grid;
-    justify-content: center;
-    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
-    padding: 3vh;
-
-    list-style: none;
-    grid-auto-flow: column;
-    grid-auto-columns: 16.5%;
-    gap: 1rem;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    z-index: 100;
-}
-
-.long-lat {
-    background-color: #E6D9CA;
-}
-
-.distance {
-    background-color: aquamarine;
-}
-
-button {
-    background-color: white;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    border-radius: 50vh;
-    border-style: none;
-    height: 8vh;
-    width: 8vh;
-    margin-left: 4vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*border-radius: 4px;*/
-    font-size: .75rem;
-    scroll-snap-align: start;
-}
-
-
-.selected {
-    background-color: aquamarine;
-}
-
-#search {
-    background-color: white;
-    border-radius: 1vh;
-    border-style: none;
-    padding: 0.5vh;
-    width: 10vh;
-    margin: 1vh;
-    align-items: center;
-    justify-content: center;
-    display: grid;
-}
-
-.long-lat {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-}
-
-.iconify {
-    font-size: 4vh;
-}
-
-#restaurant-names {
-    background-color:  #e2dad1;
-    padding: 2vh;
-}
-
-ul {
-    display: grid;
-    width: 100%;
-    background-color: white;
-    grid-template-columns: 1fr 2fr;
-    margin-bottom: 2vh;
-    border-radius: 0.5vh;
-}
-
-li {
-    background-color: white;
-    margin: 2vh;
-    padding: 1vh;
-    border-radius: 0.2rem;
-    list-style: none;
-} 
-
-
-#menu-items::-webkit-scrollbar {
- display:none;
-}
-
-.imagediv {
-   background-image: url("/images/pizza.jpg");
-   background-size: cover;
-   width: 18vh;
 }
 
 h2 {
@@ -154,13 +23,145 @@ h3 {
     text-transform: uppercase;
 }
 
+p, h2, h3 {
+    margin: 0.5vh;
+    /*font-family: 'Prata', serif;
+    font-family: 'Quicksand', sans-serif;*/
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+/* HEADER */
+
+
+/* MAIN */
+
+body{
+    background-color: #dbd7d7;
+}
+
+/* Choose city */
+
+.searchbar {
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    height: 50vh;
+    display: grid;
+    grid-auto-columns: 2fr;
+    justify-content: center;
+    align-items: center;
+
+}
+
 #states {
     border-radius: 1vh;
     border-style: none;
     padding: 2vh;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-left: 19vh;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
 
-p, h2, h3 {
-    margin: 0.5vh;
+img {
+    margin-left: 10vh;
+    margin-top: 8vh;
 }
+
+input {
+    padding: 1.5vh;
+    border-radius: 1vh;
+    border-style: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #EFEDED;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+option {
+    background-color: #EFEDED;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+/* Choose cuisines */
+
+#menu-items {
+    height: 10vh;
+    background-color: #dbd7d7;
+    display: grid;
+    justify-content: center;
+    padding: 3vh;
+
+    list-style: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 16.5%;
+    gap: 1.5rem;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    z-index: 100;
+}
+
+/* Cuisines buttons & Slider */
+
+button {
+    background-color: #EFEDED;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 50vh;
+    border-style: none;
+    height: 8vh;
+    width: 8vh;
+    margin-left: 17vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    scroll-snap-align: start;
+}
+
+
+#menu-items::-webkit-scrollbar {
+    display:none;
+   }
+
+.iconify {
+    font-size: 4vh;
+}
+
+/* Show resturants */
+
+#restaurant-names {
+    background-color: #dbd7d7;
+    padding: 2vh;
+    padding-left: 0vh;
+
+}
+
+ul {
+    display: grid;
+    width: 100%;
+    background-color: #EFEDED;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 2vh;
+    border-radius: 1vh;
+}
+
+li {
+    background-color:#EFEDED;
+    margin: 2vh;
+    padding: 1vh;
+    border-radius: 0.2rem;
+    list-style: none;
+} 
+
+.map {
+    font-size: 2vh;
+}
+
+.imagediv {
+   background-image: url("/images/backgroundsearch.jpg");
+   background-size: cover;
+   width: 100%;
+}
+
+
+

@@ -6,58 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css">
 
+    <!-- Icons -->
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Quicksand:wght@300;400&family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap" rel="stylesheet">
 
     <title>Restaurant App</title>
 </head>
 <body>
 
     <header>
-        <h1>Hawaii Street Food</h1>
+
     </header>
 
     <main>
 
+        <!-- Choose City -->
+
         <section class="searchbar">
-            <label for="states"><!--<h2>Choose your city</h2></label>-->
+            <img src="/images/logotwo.png">
 
-            <!--<button id="test">Testa</button>-->
-
-            <!--
-            <button id="honolulu">Honolulu</button>
-            <button id="picorivera">Hilo</button>
-            <button id="hickam">Hickam Village</button>-->
-
+            <label for="states">
             <select id="states">
                 <option value="all">All restaurants</option>
                 <option value="honolulu" id="val1">Honolulu</option>
+                <option value="holualoa">Holualoa</option>
+                <option value="haleiwa">Haleiwa</option>
                 <option value="hilo" id="val2">Hilo</option>
                 <option value="hickamvillage" id="val3">Hickam Village</option>
                 <option value="hanalei">Hanalei</option>
             </select>
-            <!--<input type="text" placeholder="What's your favorite food?">-->
         </section>
-        
-        <!-- <a href="https://www.latlong.net/c/?lat=40.712776&long=-74.005974" target="_blank">(40.712776, -74.005974)</a> -->
 
-       <!-- <label for="food-options"></label>
-
-        <select id="food-options">
-          <option value="chinese">Chinese</option>
-          <option value="pizza">Pizza</option>
-          <option value="american">American</option>
-          <option value="french">French</option>
-        </select> -->
+        <!-- Choose Cuisine -->
 
         <section id="menu-items">
             <button id="b-one"><span class="iconify" data-icon="majesticons:burger-line" data-cuisine="Burgers"></span>
             </button>
             <button id="b-two"><span class="iconify" data-icon="fluent:food-pizza-20-regular" data-cuisine="Pizza"></span>
             </button>
-            <button id="b-three"><span class="iconify" data-icon="icon-park-outline:noodles" data-cuisine="Noodles"></span>
+            <button id="b-three"><span class="iconify" data-icon="icon-park-outline:noodles" data-cuisine="Chinese"></span>
             </button>
             <button id="b-four"><span class="iconify" data-icon="gg:coffee" data-cuisine="Coffee & Tea"></span>
             </button>
@@ -65,29 +59,18 @@
             </button>
             <button id="b-six"><span class="iconify" data-icon="ep:cold-drink" data-cuisine="Drinks"></span>
             </button>
+            <button id="b-seven"><span class="iconify" data-icon="icon-park-outline:sandwich" data-cuisine="Sandwiches"></span>
+            </button>
+            <button id="b-eigth"><span class="iconify" data-icon="iconoir:bbq" data-cuisine="Barbecue"></span>
+            </button>
             </section>
 
-    <!-- <section class="long-lat">
-        <h2>Resturants nearby</h2>
-        <button id="search">Search</button>
 
-        <input type="text" placeholder="Longitud...">
-        <input type="text" placeholder="Latitud...">
-        
-        <div class="distance">
-        <h3>Choose distance</h3>
-        <label for="opt-one"><input type="radio"><p>0-5 km</p></label>
-        <label for="opt-two"><input type="radio"><p>5-10 km</p></label>
-        <label for="opt-three"><input type="radio"><p>> 1 mil</p></label>
-        </div>
-    </section>-->
+        <!-- Show resturants -->
 
-    <section>
-        <div id="restaurant-names"></div>
-    </section>
-
-    <div id="demo">
-    </div>
+        <section>
+            <div id="restaurant-names"></div>
+        </section>
 
     </main>
 
