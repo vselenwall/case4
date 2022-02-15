@@ -10,7 +10,7 @@ fetch(url3)
         .then(response => response.json())
         .then(obj => filter(obj))
         .then(obj => render(obj))
-        //.catch(error => renderError(error));
+        
 
     function filter(obj) {
       return obj;
@@ -24,7 +24,7 @@ fetch(url3)
 
 
 
-// Shows all the restaurants from API
+// Shows all the restaurants
 
 function listWithRestaurants() {
 
@@ -39,9 +39,9 @@ function listWithRestaurants() {
     <p>${element.restaurant_phone}</p>
   </li>
 </ul>`).join(' ');
-}
+} 
 
-// Shows all the render restaurants from API
+// Shows all the rendered restaurants
 
 function renderRestaurants(result){
   restaurantList.innerHTML = result.map(element => `
@@ -60,11 +60,10 @@ function renderRestaurants(result){
 // Function for filter and render choosen city and cuisine
 
   function filterAndRender(event){
-  console.log("hej");
 
   let button = event.target.closest("button");
   let cuisine = button.firstElementChild.getAttribute("data-cuisine");
-  console.log(button, cuisine);
+  //console.log(button, cuisine);
   
   let filteredList = result.filter((restaurant) => {
 
@@ -101,21 +100,21 @@ function renderRestaurants(result){
 function chooseCityHonolulu() {
   const chooseCity = result.filter(
     (element) => element.address.city.includes("Honolulu" && "HONOLULU"));
-    console.log(chooseCity);
+    
     renderRestaurants(chooseCity);
 }
 
 function chooseCityHilo(){
   const chooseCityHilo = result.filter(
     (element) => element.address.city.includes("Hilo" && "HILO"));
-    console.log(chooseCityHilo);
+   
     renderRestaurants(chooseCityHilo);
 }
 
 function chooseCityHickam(){
   const chooseCityHickam = result.filter(
     (element) => element.address.city.includes("Hickam Village" && "Hickam AFB"));
-    console.log(chooseCityHickam);
+    
     renderRestaurants(chooseCityHickam);
 }
 
@@ -123,7 +122,6 @@ function chooseCityHanalei(){
   const chooseCityHanalei = result.filter(
     (element) => element.address.city.includes("Hanalei"));
     
-    console.log(chooseCityHanalei);
     renderRestaurants(chooseCityHanalei);
 }
 
@@ -131,15 +129,13 @@ function chooseCityHolualoa(){
   const chooseCityHolualoa = result.filter(
     (element) => element.address.city.includes("Holualoa"));
     
-    console.log(chooseCityHolualoa);
     renderRestaurants(chooseCityHolualoa);
 }
 
 function chooseCityHaleiwa(){
   const chooseCityHaleiwa = result.filter(
     (element) => element.address.city.includes("Haleiwa"));
-    
-    console.log(chooseCityHaleiwa);
+  
     renderRestaurants(chooseCityHaleiwa);
 }
 
@@ -187,45 +183,32 @@ stateOpt.addEventListener("change", dropdownCity);
 function dropdownCity(){
 
   if(stateOpt.value === "hilo") {
-    console.log("Hilo");
 
     chooseCityHilo();
 
   } else if(stateOpt.value === "honolulu") {
-    console.log("Honolulu");
 
     chooseCityHonolulu();
 
   } else if(stateOpt.value === "hickamvillage") {
-    console.log("Hickam Village");
 
     chooseCityHickam();
 
   } else if(stateOpt.value === "hanalei") {
-    console.log("Hanalei")
 
     chooseCityHanalei();
 
     } else if(stateOpt.value === "holualoa") {
-      console.log("Holuola");
       
       chooseCityHolualoa();
 
     } else if(stateOpt.value === "haleiwa") {
-      console.log("Haleiwa");
 
       chooseCityHaleiwa();
     } else {
     listWithRestaurants();
-    console.log("fel");
+  
   }
       }
 
      
-     function getImage (element) {
-        if(element.cuisines === "Burgers"){
-          let image = document.getElementById("pic");
-          image.setAttribute("class", "imagediv");
-    
-        }
-      }
